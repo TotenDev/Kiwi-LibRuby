@@ -1,4 +1,4 @@
-# kiwi.rb — Kiwi
+# tdev_kiwi.rb — Kiwi
 # today is 7/11/12, it is now 7:21 PM
 # created by mtrovilho
 # see LICENSE for details
@@ -8,8 +8,8 @@
 # that helped me a lot!
 
 require 'fiddle'
-require 'kiwi/message'
-require "kiwi/version"
+require 'tdev_kiwi/message'
+require 'tdev_kiwi/version'
 
 module TotenDev
   class Kiwi

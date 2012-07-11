@@ -1,6 +1,6 @@
 # Kiwi
 
-TODO: Write a gem description
+Ruby Gem to send a messages to [Kiwi](https://github.com/TotenDev/Kiwi)
 
 [![Build Status](https://secure.travis-ci.org/TotenDev/Kiwi-LibRuby.png?branch=master)](http://travis-ci.org/TotenDev/Kiwi-LibRuby)
 
@@ -8,7 +8,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'kiwi'
+    gem 'tdev_kiwi'
 
 And then execute:
 
@@ -16,11 +16,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install kiwi
+    $ gem install tdev_kiwi
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'tdev_kiwi'
+    
+    message = TotenDev::Message.new
+    message.worker = '<PATH_TO_WORKER>'
+    message.args = '<ARGUMENTS>'
+    
+    queue = TotenDev::Kiwi.new <KEY_ID>
+    queue.send message
 
 ## Contributing
 
