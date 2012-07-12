@@ -5,9 +5,4 @@ rvm:
   - 1.9.3
 
 notifications:
-  irc:
-    channels:
-      - "irc.freenode.org#TotenDev"
-    template:
-      - "%{repository_url} (%{commit}) : %{message} %{foo}"
-      - "Build details: %{build_url}"
+  irc: "irc.freenode.org#TotenDev"

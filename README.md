@@ -2,6 +2,8 @@
 
 Ruby Gem to send a messages to [Kiwi](https://github.com/TotenDev/Kiwi)
 
+A special thanks to [Peter Cooper](@peterc) for this great [gist](https://gist.github.com/2582673) that helped me a lot!
+
 [![Build Status](https://secure.travis-ci.org/TotenDev/Kiwi-LibRuby.png?branch=master)](http://travis-ci.org/TotenDev/Kiwi-LibRuby)
 
 ## Requirements
