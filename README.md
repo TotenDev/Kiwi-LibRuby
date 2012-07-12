@@ -4,6 +4,11 @@ Ruby Gem to send a messages to [Kiwi](https://github.com/TotenDev/Kiwi)
 
 [![Build Status](https://secure.travis-ci.org/TotenDev/Kiwi-LibRuby.png?branch=master)](http://travis-ci.org/TotenDev/Kiwi-LibRuby)
 
+## Requirements
+
+- Ruby ~> 1.9.2
+- [LibC](http://www.gnu.org/software/libc/)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -27,6 +32,7 @@ Or install it yourself as:
     message.args = '<ARGUMENTS>'
     
     queue = TotenDev::Kiwi.new <KEY_ID>
+    queue.queue_id '<QUEUE_ID>'
     queue.send message
 
 ## Contributing
@@ -36,3 +42,7 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+##License
+
+[MIT](https://github.com/TotenDev/TDevShortener-LibRuby/blob/master/LICENSE)

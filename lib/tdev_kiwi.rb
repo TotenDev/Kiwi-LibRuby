@@ -23,23 +23,23 @@ module TotenDev
     IPC_W      = 000200
     IPC_M      = 010000
     
-    attr_accessor :name, :message
+    attr_accessor :queue_id, :message
     
-    def initialize(key_id, name = 'TDKiwi')
-      @name = name
-      @kiwi = self.class.get(key_id)
+    def initialize(qk, qid = 'TDKiwi')
+      @queue_id = qid
+      @kiwi = self.class.get(qk) unless qk.nil?
     end
     
-    def self.get( key_id, msgflag = IPC_CREAT | IPC_R | IPC_W | IPC_M )
-      key_id = key_id.to_i if key_id.is_a? String
+    def self.get( queue_key, msgflag = IPC_CREAT | IPC_R | IPC_W | IPC_M )
+      queue_key = queue_key.to_i if queue_key.is_a? String
       Fiddle::Function.new( LIBC['msgget'],
                             [Fiddle::TYPE_INT, Fiddle::TYPE_INT],
                             Fiddle::TYPE_INT )
-                            .call( key_id, msgflag )
+                            .call( queue_key, msgflag )
     end
     
     def send( msg = @message )
-      wrapper = "#{@name}||#{msg.worker}||'#{msg.args}'"
+      wrapper = "#{@queue_id}||#{msg.worker}||'#{msg.args}'"
       sender( "s:#{wrapper.length}:\"#{wrapper}\"" )
     end
     
