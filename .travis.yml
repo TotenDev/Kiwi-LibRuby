@@ -4,8 +4,6 @@ rvm:
   - 1.9.2
   - 1.9.3
 
-before_install: echo 'yes' | gem uninstall ffi -a -I || true
-
 notifications:
   irc:
     channels:

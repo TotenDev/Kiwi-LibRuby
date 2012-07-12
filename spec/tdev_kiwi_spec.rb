@@ -1,16 +1,27 @@
 require 'spec_helper'
 
-describe TotenDev::Kiwi do
-  it 'kiwi response should not be false' do
-    
-    message = TotenDev::Message.new
-    message.worker = '/usr/local/test.rb'
-    message.args = 'the_arg'
-    
-    queue = TotenDev::Kiwi.new('9076')
-    queue.name = 'TheTest'
-    queue.message = message
-    queue.send.should_not be_false
-    
+describe TotenDev::Message do
+  
+  before :each do
+    @message = TotenDev::Message.new '/usr/local/test.rb', 'the_arg'
   end
+  
+  describe "#new" do
+    it "takes two parameters and returns a Message object" do
+        @message.should be_an_instance_of TotenDev::Message
+    end
+  end
+  
+  describe "#worker" do
+    it "returns the correct worker" do
+        @message.worker should eql '/usr/local/test.rb'
+    end
+  end
+  
+  describe "#args" do
+    it "returns the correct argument" do
+        @message.args should eql 'the_arg'
+    end
+  end
+  
 end
