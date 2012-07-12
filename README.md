@@ -2,6 +2,8 @@
 
 Ruby Gem to send a messages to [Kiwi](https://github.com/TotenDev/Kiwi)
 
+A special thanks to [Peter Cooper](https://github.com/peterc) for this great [gist](https://gist.github.com/2582673) that helped me a lot!
+
 [![Build Status](https://secure.travis-ci.org/TotenDev/Kiwi-LibRuby.png?branch=master)](http://travis-ci.org/TotenDev/Kiwi-LibRuby)
 
 ## Requirements
@@ -32,8 +34,10 @@ Or install it yourself as:
     message.args = '<ARGUMENTS>'
     
     queue = TotenDev::Kiwi.new <KEY_ID>
-    queue.queue_id '<QUEUE_ID>'
+    queue.queue_id = '<QUEUE_ID>'
     queue.send message
+
+To learn more about this parameters please read [How it works](https://github.com/TotenDev/Kiwi/#how-it-works).
 
 ## Contributing
 

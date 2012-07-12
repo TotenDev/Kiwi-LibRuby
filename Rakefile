@@ -11,13 +11,13 @@ end
 desc "Run rspec"
 task :spec do
   puts "running rspec..."
-  system("bundle exec rspec spec")
+  system "bundle exec rspec spec"
   raise "rspec failed!" unless $?.exitstatus == 0
 end
 
 desc "Run travis-lint"
 task :tlint do
   puts "running travis-lint..."
-  system("travis-lint")
+  system "travis-lint"
   raise "lint failed!" unless $?.exitstatus == 0
 end

@@ -14,7 +14,15 @@ require 'tdev_kiwi/version'
 module TotenDev
   class Kiwi
     
-    LIBC = DL.dlopen('libc.dylib')
+    begin
+      LIBC = DL.dlopen('libc.dylib')
+    rescue
+      begin
+        LIBC = DL.dlopen('libc.so')
+      rescue
+        LIBC = nil
+      end
+    end
     
     IPC_CREAT  = 001000
     IPC_EXCL   = 002000
@@ -24,13 +32,16 @@ module TotenDev
     IPC_M      = 010000
     
     attr_accessor :queue_id, :message
+    attr_reader :queue_key
     
     def initialize(qk, qid = 'TDKiwi')
       @queue_id = qid
+      @queue_key = qk
       @kiwi = self.class.get(qk) unless qk.nil?
     end
     
     def self.get( queue_key, msgflag = IPC_CREAT | IPC_R | IPC_W | IPC_M )
+      return nil if LIBC.nil?
       queue_key = queue_key.to_i if queue_key.is_a? String
       Fiddle::Function.new( LIBC['msgget'],
                             [Fiddle::TYPE_INT, Fiddle::TYPE_INT],
