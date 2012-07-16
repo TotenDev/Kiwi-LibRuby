@@ -47,6 +47,6 @@ To learn more about this parameters please read [How it works](https://github.co
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-##License
+## License
 
 [MIT](https://github.com/TotenDev/TDevShortener-LibRuby/blob/master/LICENSE)
